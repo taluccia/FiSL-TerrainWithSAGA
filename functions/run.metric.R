@@ -4,17 +4,17 @@
 
 
 if(FALSE){ # example usage
-  setwd("../FiSL-TerrainWithSAGA") ## changed
+  #setwd("../FiSL-TerrainWithSAGA") ## changed
   source("../functions/terrain.function.calls.R") # changed
   calls <- read.csv("../data/callsGirds/calls.csv", stringsAsFactors=FALSE)# changed
   grids <- read.csv("../data/callsGirds/grids.csv", stringsAsFactors=FALSE) # changed
   input.dir <- "../data/dems/" # changed
   output.dir <- "../outputs/dems/" # changed
   library(RSAGA)
-  grid <- "blake30"
+  grid <- "DEMClippedEA_NWT2014"
   run <- calls$run[1]
   workspace <- "../temp/" # change to???
-  env <- rsaga.env(path="C:/Program Files (x86)/SAGA-GIS-2-1-0")  # non standard installation b/c 2.1.1 is at default path # change??
+  env <- rsaga.env(path="C:/Program Files (x86)/SAGA-GIS")  # non standard installation b/c 2.1.1 is at default path # change??
   run <- "ws0"
   
   # A single metric

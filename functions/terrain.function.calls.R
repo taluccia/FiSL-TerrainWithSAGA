@@ -35,12 +35,12 @@ hydro <- function(input, outdir, workspace, env=env) {
   
   
   gsub("/*$", "/", workspace) # ensure trailing "/" 
-  ow <- getwd()
-  on.exit(setwd(ow))
-  setwd(workspace)
+  #ow <- getwd()
+  #on.exit(setwd(ow))
+  #setwd(workspace)
   
-  if(!grepl("\\.sgrd$", input))  
-    input <- paste(input, ".sgrd", sep="")
+  if(!grepl("\\.asc$", input))  
+    input <- paste(input, ".asc", sep="")
   if(!file.exists(input)) stop("Couldn't find file:", input)
   
   verbose = TRUE
@@ -50,7 +50,7 @@ hydro <- function(input, outdir, workspace, env=env) {
   
   metrics <- c("carea", "cheight", "cslope", "caspect", "cflowpath")
   
-  setwd(workspace)
+  #setwd(workspace)
   if(verbose) cat("Running hydro on '", input, "'\n", sep="")
   rsaga.parallel.processing(in.dem=input, out.carea = "carea", out.cheight = "cheight", 
                             out.cslope = "cslope", out.caspect = "caspect", 
@@ -95,13 +95,13 @@ morpho<-function(input, outdir, workspace, env=env()) {
   verbose = TRUE
   
   gsub("/*$", "/", workspace) # ensure trailing "/" 
-  ow <- getwd()
-  on.exit(setwd(ow))
-  setwd(workspace)
+  #ow <- getwd()
+  #on.exit(setwd(ow))
+  #setwd(workspace)
   
   # Add extension to input file name
-  if(!grepl("\\.sgrd$", input))  
-    input <- paste(input, ".sgrd", sep="")
+  if(!grepl("\\.asc$", input))  
+    input <- paste(input, ".asc", sep="")
   if(!file.exists(input)) stop("Couldn't find file:", input)
   
   metrics <- c("slope", "aspect", "curv","hcurv", "vcurv")
@@ -146,12 +146,12 @@ wetnessindex <- function(input, outdir, workspace, env=env) {
   verbose = TRUE
   
   gsub("/*$", "/", workspace) # ensure trailing "/" 
-  ow <- getwd()
-  on.exit(setwd(ow))
-  setwd(workspace)
+ # ow <- getwd()
+  #on.exit(setwd(ow))
+  #setwd(workspace)
   
-  if(!grepl("\\.sgrd$", input))  
-    input <- paste(input, ".sgrd", sep="")
+  if(!grepl("\\.asc$", input))  
+    input <- paste(input, ".asc", sep="")
   if(!file.exists(input)) stop("Couldn't find file:", input)
   
   input.name <- gsub("^.*/", "", input)  # lop of all but the filename
@@ -229,9 +229,9 @@ wind <-function(input, outdir, workspace, env=env, radius=500, direction ){
   input.name <- gsub("\\.[^.]*$", "", input.name) # remove extension
   file.name <- paste(input.name, "_", direction, sep="")
   
-  ow <- getwd()
-  on.exit(setwd(ow))
-  setwd(workspace)
+  #ow <- getwd()
+  #on.exit(setwd(ow))
+  #setwd(workspace)
   
   focal.function(in.grid=input, fun=wind.shelter, out.grid.prefix=file.name, control=ctrl, 
                  radius=radius.cells, is.pixel.radius=TRUE, search.mode="circle")
@@ -264,9 +264,9 @@ relpos<-function(input, outdir, workspace, env=env){
   output <- gsub("[outdir]", outdir, output, fixed=TRUE)
   
   # Set workspace for duration of function
-  ow <- getwd()
-  on.exit(setwd(ow))
-  setwd(workspace)  
+  #ow <- getwd()
+  #on.exit(setwd(ow))
+  #setwd(workspace)  
   
   # add extension to input file (if it's not already there)
   if(!grepl("\\.asc$", input))  

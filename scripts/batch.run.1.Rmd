@@ -30,14 +30,14 @@ rm(list=ls()) ### (you may not want this line) clear workspace   CAUTION!!!
 user <- "anna"  # or sandy  this controls machine specific configuration
 stopifnot(user %in% c("anna", "sandy"))
 ```
-
+setwd("C:/Users/atalucci/Documents/R-GitHub/FiSL-TerrainWithSAGA/FiSL-TerrainWithSAGA") 
 ```{r}
 if(user == "anna"){
-  setwd("../FiSL-TerrainWithSAGA")  
+   
   workspace <- "../temp/"   ### If running multiple processes make sure that each uses it's own workspace
   input.dir <- "../data/dems/"   ###  Where your grids are
   output.dir <- "../outputs/" ###  Where the results should be put
-  rsaga.path <- "C:/Program Files (x86)/SAGA-GIS-2-1-0"
+  rsaga.path <- "C:/Program Files (x86)/SAGA-GIS"
 }
 ```
 
@@ -55,8 +55,8 @@ if(user == "sandy"){
 ```
 
 ```{r}
-source("terrain.function.calls.R")
-source("run.metric.R")
+source("../functions/terrain.function.calls.R")
+source("../functions/run.metric.R")
 ```
 
 ```{r}
@@ -66,12 +66,12 @@ startover <- FALSE  #  If FALSE then grids which have all of the expected metric
 
 # Read in calls file (Should not be changed at all)
 ```{r}
-calls <- read.csv("../data/callsGirds/calls.csv", stringsAsFactors=FALSE)
+calls <- read.csv("../data/CallsGrids/calls.csv", stringsAsFactors=FALSE)
 ```
 
 # Read in grids file (you'll need to update this to include all the grids you want to run)
 ```{r}
-grids <- as.vector(scan("demlist1.txt", what="character"))
+grids <- c("DEMClippedEA_NWT2014", "DEMClippedEA_SK2015", "DEMClippedNWT2014", "DEMClippedSK2015")
 ```
 
 
@@ -108,18 +108,14 @@ env <- rsaga.env(path=rsaga.path)
 ```{r}
 for(i in 1:length(grids)){
   grid <- grids[i]  
-  # grid <- "blake30"  # for testing
+  #grid <- "DEMClippedEA_NWT2014"  # for testing
   cat("\n\nStarting grid", i, "of", length(grids), "\t", grid, "\n\n")
-```  
-  ## skip completed grids if appropriate
-```{r}  
+ 
   if(!startover){ 
     result.files <- paste(output.dir, grid, "_", all.metrics, sep="")
     if(all(file.exists(result.files))) next
   }
-```  
-  # Run all the metrics for the grid
-```{r}  
+  
 for(run in calls$run){
     run.metric(grid=grid, 
                run=run, 
@@ -133,3 +129,4 @@ for(run in calls$run){
 ```
 
 **THE END**
+
