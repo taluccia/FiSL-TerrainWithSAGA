@@ -4,7 +4,7 @@
 
 
 if(FALSE){ # example usage
-  
+  setwd("../FiSL-TerrainWithSAGA") ## changed
   source("../functions/terrain.function.calls.R") # changed
   calls <- read.csv("../data/callsGirds/calls.csv", stringsAsFactors=FALSE)# changed
   grids <- read.csv("../data/callsGirds/grids.csv", stringsAsFactors=FALSE) # changed
@@ -13,7 +13,7 @@ if(FALSE){ # example usage
   library(RSAGA)
   grid <- "blake30"
   run <- calls$run[1]
-  workspace <- "x:/Sandy/temp/" # change to???
+  workspace <- "../temp/" # change to???
   env <- rsaga.env(path="C:/Program Files (x86)/SAGA-GIS-2-1-0")  # non standard installation b/c 2.1.1 is at default path # change??
   run <- "ws0"
   
