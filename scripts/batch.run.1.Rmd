@@ -33,6 +33,8 @@ stopifnot(user %in% c("anna", "sandy"))
 
 ```{r}
 if(user == "anna"){
+  setwd("../FiSL-TerrainWithSAGA")  
+  workspace <- "../temp/"   ### If running multiple processes make sure that each uses it's own workspace
   input.dir <- "../data/dems/"   ###  Where your grids are
   output.dir <- "../outputs/" ###  Where the results should be put
   rsaga.path <- "C:/Program Files (x86)/SAGA-GIS-2-1-0"
