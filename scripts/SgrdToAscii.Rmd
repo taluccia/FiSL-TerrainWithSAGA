@@ -1,0 +1,43 @@
+---
+title: "SAGA Grids to ASCii"
+output: html_document
+date: "2023-02-25"
+---
+
+
+
+# Overview
+
+
+# Packages
+```{r}
+library(RSAGA)
+library(gdalUtilities)
+library(terra)
+library(sf)
+```
+
+```{r}
+rsaga.path <- "C:/Program Files/saga-8.5.0_x64"
+```
+
+```{r}
+env <- rsaga.env(path=rsaga.path) 
+```
+
+
+# To ASCii
+```{r}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/slope", out.grids = "../outputs/slope", format = "ascii", env = env)
+
+```
+
+```{r}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/cprof", out.grids = "../outputs/cprof", format = "ascii", env = env)
+
+```
+
+```{r}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/cplan", out.grids = "../outputs/cplan", format = "ascii", env = env)
+
+```
