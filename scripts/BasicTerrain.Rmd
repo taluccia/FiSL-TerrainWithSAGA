@@ -19,11 +19,14 @@ library(terra)
 library(sf)
 ```
 
+```{r eval=FALSE, include=FALSE}
+workspace <- "../temp/"   ### If running multiple processes make sure that each uses it's own workspace
+input.dir <- "../data/dems/"   ###  Where your grids are
+output.dir <- "../outputs/" ###  Where the results should be put
+```
+
 ```{r}
- workspace <- "../temp/"   ### If running multiple processes make sure that each uses it's own workspace
-  input.dir <- "../data/dems/"   ###  Where your grids are
-  output.dir <- "../outputs/" ###  Where the results should be put
-  rsaga.path <- "C:/Program Files/saga-8.5.0_x64"
+rsaga.path <- "C:/Program Files/saga-8.5.0_x64"
 ```
 
 ```{r}
@@ -33,25 +36,14 @@ env <- rsaga.env(path=rsaga.path)
 ```{r}
 rsaga.get.modules("ta_mo")
 ```
+
 ```{r}
 get
 ```
 
-# Data
 
-## DEMs
-```{r}
-nwtDEM<-rast("../data/dems/DEMClippedNWT2014.asc")
-```
 
-```{r}
-nwtDEM
-```
-
-```{r}
-plot(nwtDEM)
-```
-
+# Aspect Slope Curvature
 ```{r}
 rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedNWT2014.asc", 
                      out.slope = "../outputs/slope",
@@ -63,6 +55,28 @@ rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedNWT2014.asc",
 
 
 
-```{r}
 
+
+# Wind shelter
+```{r}
+# Settings used by Plattner et al. (2004):
+ctrl = wind.shelter.prep(6,-pi/4,pi/12,10)
+focal.function("dem.asc",fun=wind.shelter,control=ctrl,
+radius=6,search.mode="circle")
+```
+
+# Hydrology
+hydro_carea, hydro_caspect, hydro_cflowpath, hydro_cheight, hydro_cslope,
+
+rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedNWT2014.asc", 
+                     out.slope = "../outputs/slope",
+                     out.cprof = "../outputs/cprof", 
+                     out.cplan = "../outputs/cplan",
+                     method = "poly2zevenbergen",
+                     env = env)
+              
+```{r}
+rsaga.topdown.processing(in.dem="../data/dems/DEMClippedNWT2014.asc", out.carea="../outputs/carea", out.mean ="../outputs/mean", out.tot.mat="../outputs/",
+out.acc.left, out.acc.right, out.flowpath, step, method = "mfd",
+linear.threshold = Inf, convergence = 1.1, env = rsaga.env())
 ```
