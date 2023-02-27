@@ -1,0 +1,52 @@
+---
+title: "Hydrology"
+output: html_document
+date: "2023-02-27"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+rm(list=ls()) ### (you may not want this line) clear workspace   CAUTION!!!
+```
+
+# Overview
+
+
+# Packages
+```{r}
+library(RSAGA)
+library(gdalUtilities)
+library(terra)
+library(sf)
+```
+
+
+# Rsaga 
+This RSAGA version has been tested with SAGA GIS versions between 2.3.1 and 8.4.1.
+```{r}
+rsaga.path <- "C:/Program Files/SAGA"
+```
+
+```{r}
+env <- rsaga.env(path=rsaga.path) 
+```
+
+# Hydrology
+hydro_carea, hydro_caspect, hydro_cflowpath, hydro_cheight, hydro_cslope,
+
+```{r}
+rsaga.topdown.processing(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+                         out.carea = "../outputs/EqualArea/hydro/carea", 
+                         out.mean = "../outputs/EqualArea/hydro/mean",
+                         out.tot.mat = "../outputs/EqualArea/hydro/totmat",
+                         out.acc.left = "../outputs/EqualArea/hydro/accleft", 
+                         out.acc.right = "../outputs/EqualArea/hydro/accright", 
+                         out.flowpath = "../outputs/EqualArea/hydro/flowpath", 
+                         method = "mfd",
+                         convergence = 1.1, 
+                         env = env)
+```
+
