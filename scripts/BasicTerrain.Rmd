@@ -4,10 +4,15 @@ output: html_document
 date: "2023-02-24"
 ---
 
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+rm(list=ls()) ### (you may not want this line) clear workspace   CAUTION!!!
+```
 # Overview
 
 
@@ -19,14 +24,11 @@ library(terra)
 library(sf)
 ```
 
-```{r eval=FALSE, include=FALSE}
-workspace <- "../temp/"   ### If running multiple processes make sure that each uses it's own workspace
-input.dir <- "../data/dems/"   ###  Where your grids are
-output.dir <- "../outputs/" ###  Where the results should be put
-```
 
+# Rsaga 
+This RSAGA version has been tested with SAGA GIS versions between 2.3.1 and 8.4.1.
 ```{r}
-rsaga.path <- "C:/Program Files/saga-8.5.0_x64"
+rsaga.path <- "C:/Program Files/SAGA"
 ```
 
 ```{r}
@@ -44,39 +46,40 @@ get
 
 
 # Aspect Slope Curvature
+Simple
 ```{r}
-rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedNWT2014.asc", 
-                     out.slope = "../outputs/slope",
-                     out.cprof = "../outputs/cprof", 
-                     out.cplan = "../outputs/cplan",
+rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+                     out.aspect = "../outputs/EqualArea/basic/aspect",
+                     out.slope = "../outputs/EqualArea/basic/slope",
+                     out.cprof = "../outputs/EqualArea/basic/cprof",
+                     out.cplan = "../outputs/EqualArea/basic/cplan",
                      method = "poly2zevenbergen",
+                     unit.slope = "radians",
+                     unit.aspect = "radians",
+                     env = env)
+```
+
+Too large for current disk space
+```{r eval=FALSE, include=FALSE}
+rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+                     out.aspect = "../outputs/EqualArea/basic/aspect",
+                     out.slope = "../outputs/EqualArea/basic/slope",
+                     out.cgene = "../outputs/EqualArea/basic/cgene",
+                     out.cprof = "../outputs/EqualArea/basic/cprof",
+                     out.cplan = "../outputs/EqualArea/basic/cplan",
+                     out.ctang = "../outputs/EqualArea/basic/ctang",
+                     out.clong = "../outputs/EqualArea/basic/clong",
+                     out.ccros = "../outputs/EqualArea/basic/ccros",
+                     out.cmini = "../outputs/EqualArea/basic/cmini",
+                     out.cmaxi = "../outputs/EqualArea/basic/cmaxi",
+                     out.ctota = "../outputs/EqualArea/basic/ctota",
+                     out.croto = "../outputs/EqualArea/basic/croto",
+                     method = "poly2zevenbergen",
+                     unit.slope = "radians",
+                     unit.aspect = "radians",
                      env = env)
 ```
 
 
 
 
-
-# Wind shelter
-```{r}
-# Settings used by Plattner et al. (2004):
-ctrl = wind.shelter.prep(6,-pi/4,pi/12,10)
-focal.function("dem.asc",fun=wind.shelter,control=ctrl,
-radius=6,search.mode="circle")
-```
-
-# Hydrology
-hydro_carea, hydro_caspect, hydro_cflowpath, hydro_cheight, hydro_cslope,
-
-rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedNWT2014.asc", 
-                     out.slope = "../outputs/slope",
-                     out.cprof = "../outputs/cprof", 
-                     out.cplan = "../outputs/cplan",
-                     method = "poly2zevenbergen",
-                     env = env)
-              
-```{r}
-rsaga.topdown.processing(in.dem="../data/dems/DEMClippedNWT2014.asc", out.carea="../outputs/carea", out.mean ="../outputs/mean", out.tot.mat="../outputs/",
-out.acc.left, out.acc.right, out.flowpath, step, method = "mfd",
-linear.threshold = Inf, convergence = 1.1, env = rsaga.env())
-```
