@@ -22,11 +22,7 @@ library(terra)
 library(sf)
 ```
 
-```{r eval=FALSE, include=FALSE}
-workspace <- "../temp/"   ### If running multiple processes make sure that each uses it's own workspace
-input.dir <- "../data/dems/"   ###  Where your grids are
-output.dir <- "../outputs/" ###  Where the results should be put
-```
+
 
 # Rsaga 
 This RSAGA version has been tested with SAGA GIS versions between 2.3.1 and 8.4.1.
@@ -37,18 +33,6 @@ rsaga.path <- "C:/Program Files/SAGA"
 ```{r}
 env <- rsaga.env(path=rsaga.path) 
 ```
-
-```{r}
-rsaga.get.modules("ta_mo")
-```
-
-```{r}
-get
-```
-
-
-
-
 
 
 # Wind shelter
