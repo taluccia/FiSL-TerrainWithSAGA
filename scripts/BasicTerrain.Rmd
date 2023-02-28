@@ -28,20 +28,14 @@ library(sf)
 # Rsaga 
 This RSAGA version has been tested with SAGA GIS versions between 2.3.1 and 8.4.1.
 ```{r}
-rsaga.path <- "C:/Program Files/SAGA"
+rsaga.path <- "C:/Users/atalucci/Documents/Programs/saga-8.5.1_x64"
 ```
 
 ```{r}
 env <- rsaga.env(path=rsaga.path) 
 ```
 
-```{r}
-rsaga.get.modules("ta_mo")
-```
 
-```{r}
-get
-```
 
 
 
@@ -49,10 +43,10 @@ get
 Simple
 ```{r}
 rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
-                     out.aspect = "../outputs/EqualArea/basic/aspect",
-                     out.slope = "../outputs/EqualArea/basic/slope",
-                     out.cprof = "../outputs/EqualArea/basic/cprof",
-                     out.cplan = "../outputs/EqualArea/basic/cplan",
+                     out.aspect = "../outputs/aspect",
+                     out.slope = "../outputs/slope",
+                     out.cprof = "../outputs/cprof",
+                     out.cplan = "../outputs/cplan",
                      method = "poly2zevenbergen",
                      unit.slope = "radians",
                      unit.aspect = "radians",
@@ -60,20 +54,12 @@ rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc",
 ```
 
 Too large for current disk space
-```{r eval=FALSE, include=FALSE}
+```{r}
 rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
-                     out.aspect = "../outputs/EqualArea/basic/aspect",
-                     out.slope = "../outputs/EqualArea/basic/slope",
-                     out.cgene = "../outputs/EqualArea/basic/cgene",
-                     out.cprof = "../outputs/EqualArea/basic/cprof",
-                     out.cplan = "../outputs/EqualArea/basic/cplan",
-                     out.ctang = "../outputs/EqualArea/basic/ctang",
-                     out.clong = "../outputs/EqualArea/basic/clong",
-                     out.ccros = "../outputs/EqualArea/basic/ccros",
-                     out.cmini = "../outputs/EqualArea/basic/cmini",
-                     out.cmaxi = "../outputs/EqualArea/basic/cmaxi",
-                     out.ctota = "../outputs/EqualArea/basic/ctota",
-                     out.croto = "../outputs/EqualArea/basic/croto",
+                     out.cgene = "../outputs/cgene",
+                     out.ctang = "../outputs/ctang",
+                     out.clong = "../outputs/clong",
+                     out.ccros = "../outputs/ccros",
                      method = "poly2zevenbergen",
                      unit.slope = "radians",
                      unit.aspect = "radians",
@@ -81,5 +67,15 @@ rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc",
 ```
 
 
-
+```{r}
+rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+                     out.cmini = "../outputs/cmini",
+                     out.cmaxi = "../outputs/cmaxi",
+                     out.ctota = "../outputs/ctota",
+                     out.croto = "../outputs/croto",
+                     method = "poly2zevenbergen",
+                     unit.slope = "radians",
+                     unit.aspect = "radians",
+                     env = env)
+```
 
