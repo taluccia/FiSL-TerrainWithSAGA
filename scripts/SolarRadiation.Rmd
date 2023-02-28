@@ -1,0 +1,72 @@
+---
+title: "Solar Radiation"
+output: html_document
+date: "2023-02-27"
+---
+
+```{r}
+rm(list=ls()) ### (you may not want this line) clear workspace   CAUTION!!!
+```
+
+# Overview
+
+
+# Packages
+```{r}
+library(RSAGA)
+library(gdalUtilities)
+library(terra)
+library(sf)
+```
+
+
+# Rsaga 
+This RSAGA version has been tested with SAGA GIS versions between 2.3.1 and 8.4.1.
+```{r}
+rsaga.path <- "C:/Program Files/SAGA"
+```
+
+```{r}
+env <- rsaga.env(path=rsaga.path) 
+```
+
+# Hydrology
+hydro_carea, hydro_caspect, hydro_cflowpath, hydro_cheight, hydro_cslope,
+
+```{r}
+rsaga.topdown.processing(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+                         out.carea = "../outputs/EqualArea/hydro/carea", 
+                         out.mean = "../outputs/EqualArea/hydro/mean",
+                         out.tot.mat = "../outputs/EqualArea/hydro/totmat",
+                         out.acc.left = "../outputs/EqualArea/hydro/accleft", 
+                         out.acc.right = "../outputs/EqualArea/hydro/accright", 
+                         out.flowpath = "../outputs/EqualArea/hydro/flowpath", 
+                         method = "mfd",
+                         convergence = 1.1, 
+                         env = env)
+```
+
+
+
+```{r}
+rsaga.pisr(in.dem ="../data/dems/DEMClippedEA_NWT2014.asc", 
+           out.direct.grid = "../outputs/EqualArea/hydro/direct",
+           out.diffuse.grid = "../outputs/EqualArea/hydro/diffuse", 
+           local.svf = TRUE,
+           latitude =  "top",
+           unit = ("kWh/m2"), 
+           solconst = 1367, 
+           enable.bending = FALSE, 
+           bending.radius = 6366737.96, 
+           bending.lat.offset = "user", 
+           bending.lat.ref.user = 0,
+           bending.lon.offset = "center", bending.lon.ref.user = 0,
+method = c("height", "components", "lumped"), hgt.atmosphere = 12000,
+hgt.water.vapour.pressure = 10, cmp.pressure = 1013,
+cmp.water.content = 1.68, cmp.dust = 100, lmp.transmittance = 70,
+time.range = c(0, 24), time.step = 0.5, start.date = list(day = 21,
+month = 3), end.date = NULL, day.step = 5, 
+env = env)
+
+
+```

@@ -1,0 +1,51 @@
+---
+title: "Wetness Index"
+output: html_document
+date: "2023-02-27"
+---
+
+
+
+```{r}
+rm(list=ls()) ### (you may not want this line) clear workspace   CAUTION!!!
+```
+
+# Overview
+
+
+# Packages
+```{r}
+library(RSAGA)
+library(gdalUtilities)
+library(terra)
+library(sf)
+```
+
+
+# Rsaga 
+This RSAGA version has been tested with SAGA GIS versions between 2.3.1 and 8.4.1.
+```{r}
+rsaga.path <- "C:/Program Files/SAGA"
+```
+
+```{r}
+env <- rsaga.env(path=rsaga.path) 
+```
+
+# Wetness index
+
+```{r}
+rsaga.wetness.index(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+                    out.wetness.index = "../outputs/EqualArea/hydro/wetnessIndexLocal", 
+                    out.cslope = "../outputs/EqualArea/hydro/cslopeLocal",
+                    out.mod.carea = "../outputs/EqualArea/hydro/modcareaLocal", 
+                    slope.type="local", 
+                    env = env)
+```
+
+```{r}
+rsaga.wetness.index(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+                    out.wetness.index = "../outputs/WIC",  
+                    slope.type="catchment", 
+                    env = env)
+```
