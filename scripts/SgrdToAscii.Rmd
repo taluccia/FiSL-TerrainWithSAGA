@@ -4,7 +4,9 @@ output: html_document
 date: "2023-02-25"
 ---
 
-
+```{r}
+rm(list=ls()) ### (you may not want this line) clear workspace   CAUTION!!!
+```
 
 # Overview
 
@@ -18,7 +20,7 @@ library(sf)
 ```
 
 ```{r}
-rsaga.path <- "C:/Program Files/saga-8.5.0_x64"
+rsaga.path <- "C:/Users/atalucci/Documents/Programs/saga-8.5.1_x64"
 ```
 
 ```{r}
@@ -39,5 +41,10 @@ rsaga.sgrd.to.esri(in.sgrds = "../outputs/cprof", out.grids = "../outputs/cprof"
 
 ```{r}
 rsaga.sgrd.to.esri(in.sgrds =  "../outputs/cplan", out.grids = "../outputs/cplan", format = "ascii", env = env)
+
+```
+
+```{r}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/aspect", out.grids = "../outputs/aspect", format = "ascii", env = env)
 
 ```

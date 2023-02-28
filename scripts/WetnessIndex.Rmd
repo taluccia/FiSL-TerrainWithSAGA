@@ -25,7 +25,7 @@ library(sf)
 # Rsaga 
 This RSAGA version has been tested with SAGA GIS versions between 2.3.1 and 8.4.1.
 ```{r}
-rsaga.path <- "C:/Program Files/SAGA"
+rsaga.path <- "C:/Users/atalucci/Documents/Programs/saga-8.5.1_x64"
 ```
 
 ```{r}
@@ -36,9 +36,7 @@ env <- rsaga.env(path=rsaga.path)
 
 ```{r}
 rsaga.wetness.index(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
-                    out.wetness.index = "../outputs/EqualArea/hydro/wetnessIndexLocal", 
-                    out.cslope = "../outputs/EqualArea/hydro/cslopeLocal",
-                    out.mod.carea = "../outputs/EqualArea/hydro/modcareaLocal", 
+                    out.wetness.index = "../outputs/WIL",  
                     slope.type="local", 
                     env = env)
 ```
