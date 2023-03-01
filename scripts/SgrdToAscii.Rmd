@@ -29,17 +29,17 @@ env <- rsaga.env(path=rsaga.path)
 
 
 # To ASCii
-```{r}
+```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds = "../outputs/slope", out.grids = "../outputs/slope", format = "ascii", env = env)
 
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds = "../outputs/cprof", out.grids = "../outputs/cprof", format = "ascii", env = env)
 
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds =  "../outputs/cplan", out.grids = "../outputs/cplan", format = "ascii", env = env)
 
 ```
@@ -48,3 +48,5 @@ rsaga.sgrd.to.esri(in.sgrds =  "../outputs/cplan", out.grids = "../outputs/cplan
 rsaga.sgrd.to.esri(in.sgrds =  "../outputs/aspect", out.grids = "../outputs/aspect", format = "ascii", env = env)
 
 ```
+
+

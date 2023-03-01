@@ -38,13 +38,13 @@ env <- rsaga.env(path=rsaga.path)
 hydro_carea, hydro_caspect, hydro_cflowpath, hydro_cheight, hydro_cslope,
 
 ```{r}
-rsaga.topdown.processing(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
-                         out.carea = "../outputs/EqualArea/hydro/carea", 
-                         out.mean = "../outputs/EqualArea/hydro/mean",
-                         out.tot.mat = "../outputs/EqualArea/hydro/totmat",
-                         out.acc.left = "../outputs/EqualArea/hydro/accleft", 
-                         out.acc.right = "../outputs/EqualArea/hydro/accright", 
-                         out.flowpath = "../outputs/EqualArea/hydro/flowpath", 
+rsaga.topdown.processing(in.dem="../data/dems/DEMEANWT2014.asc", 
+                         out.carea = "../outputs/carea", 
+                         out.mean = "../outputs/mean",
+                         out.tot.mat = "../outputs/totmat",
+                         out.acc.left = "../outputs/accleft", 
+                         out.acc.right = "../outputs/accright", 
+                         out.flowpath = "../outputs/flowpath", 
                          method = "mfd",
                          convergence = 1.1, 
                          env = env)

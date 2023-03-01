@@ -42,40 +42,36 @@ env <- rsaga.env(path=rsaga.path)
 # Aspect Slope Curvature
 Simple
 ```{r}
-rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+rsaga.slope.asp.curv(in.dem="../data/dems/DEMEANWT2014.asc", 
                      out.aspect = "../outputs/aspect",
                      out.slope = "../outputs/slope",
                      out.cprof = "../outputs/cprof",
                      out.cplan = "../outputs/cplan",
                      method = "poly2zevenbergen",
-                     unit.slope = "radians",
-                     unit.aspect = "radians",
+                     unit.slope = "percent",
+                     unit.aspect = "degrees",
                      env = env)
 ```
 
 Too large for current disk space
 ```{r}
-rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+rsaga.slope.asp.curv(in.dem="../data/dems/DEMEANWT2014.asc", 
                      out.cgene = "../outputs/cgene",
                      out.ctang = "../outputs/ctang",
                      out.clong = "../outputs/clong",
                      out.ccros = "../outputs/ccros",
                      method = "poly2zevenbergen",
-                     unit.slope = "radians",
-                     unit.aspect = "radians",
                      env = env)
 ```
 
 
 ```{r}
-rsaga.slope.asp.curv(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+rsaga.slope.asp.curv(in.dem="../data/dems/DEMEANWT2014.asc", 
                      out.cmini = "../outputs/cmini",
                      out.cmaxi = "../outputs/cmaxi",
                      out.ctota = "../outputs/ctota",
                      out.croto = "../outputs/croto",
                      method = "poly2zevenbergen",
-                     unit.slope = "radians",
-                     unit.aspect = "radians",
                      env = env)
 ```
 

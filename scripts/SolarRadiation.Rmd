@@ -34,7 +34,7 @@ env <- rsaga.env(path=rsaga.path)
 hydro_carea, hydro_caspect, hydro_cflowpath, hydro_cheight, hydro_cslope,
 
 ```{r}
-rsaga.topdown.processing(in.dem="../data/dems/DEMClippedEA_NWT2014.asc", 
+rsaga.topdown.processing(in.dem="../data/dems/DEMEANWT2014.asc", 
                          out.carea = "../outputs/EqualArea/hydro/carea", 
                          out.mean = "../outputs/EqualArea/hydro/mean",
                          out.tot.mat = "../outputs/EqualArea/hydro/totmat",
@@ -49,7 +49,7 @@ rsaga.topdown.processing(in.dem="../data/dems/DEMClippedEA_NWT2014.asc",
 
 
 ```{r}
-rsaga.pisr(in.dem ="../data/dems/DEMClippedEA_NWT2014.asc", 
+rsaga.pisr(in.dem ="../data/dems/DEMEANWT2014.asc", 
            out.direct.grid = "../outputs/EqualArea/hydro/direct",
            out.diffuse.grid = "../outputs/EqualArea/hydro/diffuse", 
            local.svf = TRUE,
