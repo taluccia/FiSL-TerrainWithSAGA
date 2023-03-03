@@ -29,24 +29,92 @@ env <- rsaga.env(path=rsaga.path)
 
 
 # To ASCii
+## Basic
 ```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds = "../outputs/slope", out.grids = "../outputs/slope", format = "ascii", env = env)
-
 ```
 
 ```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds = "../outputs/cprof", out.grids = "../outputs/cprof", format = "ascii", env = env)
-
 ```
 
 ```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds =  "../outputs/cplan", out.grids = "../outputs/cplan", format = "ascii", env = env)
-
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds =  "../outputs/aspect", out.grids = "../outputs/aspect", format = "ascii", env = env)
-
 ```
 
 
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/cgene", out.grids = "../outputs/cgene", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/ctang", out.grids = "../outputs/ctang", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/clong", out.grids = "../outputs/clong", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/ccros", out.grids = "../outputs/ccros", format = "ascii", env = env)
+```
+
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/cmini", out.grids = "../outputs/cmini", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/cmaxi", out.grids = "../outputs/cmaxi", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/ctota", out.grids = "../outputs/ctota", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/croto", out.grids = "../outputs/croto", format = "ascii", env = env)
+```
+
+
+## Hydro
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/carea", out.grids = "../outputs/carea", format = "ascii", env = env)
+```
+
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/mean", out.grids = "../outputs/mean", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/totmat", out.grids = "../outputs/totmat", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/accleft", out.grids = "../outputs/accleft", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/accright", out.grids = "../outputs/accright", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/flowpath", out.grids = "../outputs/flowpath", format = "ascii", env = env)
+```
+
+## SWI
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIC", out.grids = "../outputs/SWIC1", format = "ascii", env = env)
+```
+
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIL", out.grids = "../outputs/SWIL1", format = "ascii", env = env)
+```

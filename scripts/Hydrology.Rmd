@@ -38,7 +38,7 @@ env <- rsaga.env(path=rsaga.path)
 hydro_carea, hydro_caspect, hydro_cflowpath, hydro_cheight, hydro_cslope,
 
 ```{r}
-rsaga.topdown.processing(in.dem="../data/dems/DEMEANWT2014.asc", 
+rsaga.topdown.processing(in.dem="../data/dems/DEMEA1NWT2014.asc", 
                          out.carea = "../outputs/carea", 
                          out.mean = "../outputs/mean",
                          out.tot.mat = "../outputs/totmat",

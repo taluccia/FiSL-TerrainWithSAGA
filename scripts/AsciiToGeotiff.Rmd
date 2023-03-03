@@ -28,12 +28,179 @@ env <- rsaga.env(path=rsaga.path)
 ```
 
 # Read in ASCii
-
+## Basic
 ```{r}
 slope<-rast("../outputs/slope.asc")
 ```
 
+```{r}
+aspect<-rast("../outputs/aspect.asc")
+```
+
+```{r}
+cprof<-rast("../outputs/cprof.asc")
+```
+
+```{r}
+cplan<-rast("../outputs/cplan.asc")
+```
+
+
+```{r}
+cgene<-rast("../outputs/cgene.asc")
+```
+
+```{r}
+ctang<-rast("../outputs/ctang.asc")
+```
+
+```{r}
+clong<-rast("../outputs/clong.asc")
+```
+
+```{r}
+ccros<-rast("../outputs/ccros.asc")
+```
+
+
+```{r}
+cmini<-rast("../outputs/cmini.asc")
+```
+
+```{r}
+cmaxi<-rast("../outputs/cmaxi.asc")
+```
+
+```{r}
+ctota<-rast("../outputs/ctota.asc")
+```
+
+```{r}
+croto<-rast("../outputs/croto.asc")
+```
+
+## Hydro
+```{r}
+carea<-rast("../outputs/carea.asc")
+```
+
+```{r}
+mean<-rast("../outputs/mean.asc")
+```
+
+
+```{r}
+totmat<-rast("../outputs/totmat.asc")
+```
+
+```{r}
+accleft<-rast("../outputs/accleft.asc")
+```
+
+```{r}
+accright<-rast("../outputs/accright.asc")
+```
+
+```{r}
+flowpath<-rast("../outputs/flowpath.asc")
+```
+
+## SWI
+```{r}
+swic<-rast("../outputs/SWIC1.asc")
+```
+
+```{r}
+swil<-rast("../outputs/SWIL1.asc")
+```
+
 # To GeoTiff
+
+## Basic
 ```{r}
 writeRaster(slope, filename="../outputs/slope.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(aspect, filename="../outputs/aspect.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(cprof, filename="../outputs/cprof.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(cplan, filename="../outputs/cplan.tif", filetype = "GTiff")
+```
+
+
+
+```{r}
+writeRaster(cgene, filename="../outputs/cgene.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(ctang, filename="../outputs/ctang.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(clong, filename="../outputs/clong.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(ccros, filename="../outputs/ccros.tif", filetype = "GTiff")
+```
+
+
+```{r}
+writeRaster(cmini, filename="../outputs/cmini.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(cmaxi, filename="../outputs/cmaxi.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(ctota, filename="../outputs/ctota.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(croto, filename="../outputs/croto.tif", filetype = "GTiff")
+```
+
+## hydro
+
+```{r}
+writeRaster(carea, filename="../outputs/carea.tif", filetype = "GTiff")
+```
+
+
+```{r}
+writeRaster(mean, filename="../outputs/mean.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(totmat, filename="../outputs/totmat.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(accleft, filename="../outputs/accleft.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(accright, filename="../outputs/accright.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(flowpath, filename="../outputs/flowpath.tif", filetype = "GTiff")
+```
+
+
+## SWI
+```{r}
+writeRaster(swic, filename="../outputs/swic1.tif", filetype = "GTiff")
+```
+
+```{r}
+writeRaster(swil, filename="../outputs/swil1.tif", filetype = "GTiff")
 ```
