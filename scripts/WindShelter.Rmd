@@ -11,6 +11,9 @@ date: "2023-02-27"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+rm(list=ls()) ### (you may not want this line) clear workspace   CAUTION!!!
+```
 # Overview
 
 
@@ -23,11 +26,10 @@ library(sf)
 ```
 
 
-
 # Rsaga 
 This RSAGA version has been tested with SAGA GIS versions between 2.3.1 and 8.4.1.
 ```{r}
-rsaga.path <- "C:/Program Files/SAGA"
+rsaga.path <- "C:/Users/atalucci/Documents/Programs/saga-8.5.1_x64"
 ```
 
 ```{r}
@@ -35,12 +37,18 @@ env <- rsaga.env(path=rsaga.path)
 ```
 
 
+
 # Wind shelter
+
 ```{r}
 # Settings used by Plattner et al. (2004):
 ctrl = wind.shelter.prep(6,-pi/4,pi/12,10)
-focal.function("dem.asc",fun=wind.shelter,control=ctrl,
+windShelter = focal.function("../data/dems/DEMEA1NWT2014.asc",fun=wind.shelter,control=ctrl,
 radius=6,search.mode="circle")
+```
+
+```{r}
+plot(windShelter)
 ```
 
 

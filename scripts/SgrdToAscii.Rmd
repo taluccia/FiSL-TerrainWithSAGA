@@ -118,3 +118,13 @@ rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIC", out.grids = "../outputs/SWIC1"
 ```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIL", out.grids = "../outputs/SWIL1", format = "ascii", env = env)
 ```
+
+## Pisr
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/PisrDiffuse", out.grids = "../outputs/PisrDiffuse", format = "ascii", env = env)
+```
+
+```{r eval=FALSE, include=FALSE}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/PisrDirect", out.grids = "../outputs/PisrDirect", format = "ascii", env = env)
+```
