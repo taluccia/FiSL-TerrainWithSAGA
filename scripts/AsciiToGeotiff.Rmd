@@ -27,6 +27,7 @@ rsaga.path <- "C:/Users/atalucci/Documents/Programs/saga-8.5.1_x64"
 env <- rsaga.env(path=rsaga.path) 
 ```
 
+
 # Read in ASCii
 ## Basic
 ```{r}
@@ -203,4 +204,58 @@ writeRaster(swic, filename="../outputs/swic1.tif", filetype = "GTiff")
 
 ```{r}
 writeRaster(swil, filename="../outputs/swil1.tif", filetype = "GTiff")
+```
+
+# Sk Split SWI Read ->Write
+
+
+```{r}
+bp1<-rast("../outputs/SWIL_EA_SK_bp1.asc")
+```
+
+```{r}
+writeRaster(bp1, filename="../outputs/SWIL_EA_SK_bp1.tif", filetype = "GTiff")
+```
+
+
+```{r}
+ss1<-rast("../outputs/SWIL_EA_SK_ss1.asc")
+```
+
+```{r}
+writeRaster(ss1, filename="../outputs/SWIL_EA_SK_ss1.tif", filetype = "GTiff")
+```
+
+```{r}
+ss2<-rast("../outputs/SWIL_EA_SK_ss2.asc")
+```
+
+```{r}
+writeRaster(ss2, filename="../outputs/SWIL_EA_SK_ss2.tif", filetype = "GTiff")
+```
+
+```{r}
+ssbp1<-rast("../outputs/SWIL_EA_SK_ssbp1.asc")
+```
+
+```{r}
+writeRaster(ssbp1, filename="../outputs/SWIL_EA_SK_ssbp1.tif", filetype = "GTiff", overwrite=TRUE)
+```
+
+# SWI AK
+```{r}
+ak<-rast("../outputs/SWIL_EA_AK.asc")
+```
+
+```{r}
+writeRaster(ak, filename="../outputs/SWIL_EA_AK.tif", filetype = "GTiff", overwrite=TRUE)
+```
+
+# SWI YK
+```{r}
+yk<-rast("../outputs/SWIL_EA_YK.asc")
+```
+
+```{r}
+writeRaster(yk, filename="../outputs/SWIL_EA_YK.tif", filetype = "GTiff", overwrite=TRUE)
 ```

@@ -30,23 +30,23 @@ env <- rsaga.env(path=rsaga.path)
 
 # To ASCii
 ## Basic
-```{r eval=FALSE, include=FALSE}
-rsaga.sgrd.to.esri(in.sgrds = "../outputs/slope", out.grids = "../outputs/slope", format = "ascii", env = env)
+```{r}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/slope_EA_SK", out.grids = "../outputs/slope_EA_SK", format = "ascii", env = env)
 ```
 
-```{r eval=FALSE, include=FALSE}
-rsaga.sgrd.to.esri(in.sgrds = "../outputs/cprof", out.grids = "../outputs/cprof", format = "ascii", env = env)
+```{r}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/cprof_EA_SK", out.grids = "../outputs/cprof_EA_SK", format = "ascii", env = env)
 ```
 
-```{r eval=FALSE, include=FALSE}
-rsaga.sgrd.to.esri(in.sgrds =  "../outputs/cplan", out.grids = "../outputs/cplan", format = "ascii", env = env)
+```{r}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/cplan_EA_SK", out.grids = "../outputs/cplan_EA_SK", format = "ascii", env = env)
 ```
 
-```{r eval=FALSE, include=FALSE}
-rsaga.sgrd.to.esri(in.sgrds =  "../outputs/aspect", out.grids = "../outputs/aspect", format = "ascii", env = env)
+```{r}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/aspect_EA_SK", out.grids = "../outputs/aspect_EA_SK", format = "ascii", env = env)
 ```
 
-
+# Additional Basic
 ```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds = "../outputs/cgene", out.grids = "../outputs/cgene", format = "ascii", env = env)
 ```
@@ -116,7 +116,7 @@ rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIC", out.grids = "../outputs/SWIC1"
 
 
 ```{r eval=FALSE, include=FALSE}
-rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIL", out.grids = "../outputs/SWIL1", format = "ascii", env = env)
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIL_EA_AK", out.grids = "../outputs/SWIL_EA_AK", format = "ascii", env = env)
 ```
 
 ## Pisr
@@ -128,3 +128,22 @@ rsaga.sgrd.to.esri(in.sgrds =  "../outputs/PisrDiffuse", out.grids = "../outputs
 ```{r eval=FALSE, include=FALSE}
 rsaga.sgrd.to.esri(in.sgrds =  "../outputs/PisrDirect", out.grids = "../outputs/PisrDirect", format = "ascii", env = env)
 ```
+
+
+# SWI FOR SK Split
+```{r}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIL_EA_SK_bp1", out.grids = "../outputs//SWIL_EA_SK_bp1", format = "ascii", env = env)
+```
+
+```{r}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIL_EA_SK_ss1", out.grids = "../outputs//SWIL_EA_SK_ss1", format = "ascii", env = env)
+```
+
+```{r}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIL_EA_SK_ss2", out.grids = "../outputs//SWIL_EA_SK_ss2", format = "ascii", env = env)
+```
+
+```{r}
+rsaga.sgrd.to.esri(in.sgrds =  "../outputs/SWIL_EA_SK_ssbp1", out.grids = "../outputs//SWIL_EA_SK_ssbp1", format = "ascii", env = env)
+```
+

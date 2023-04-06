@@ -35,8 +35,8 @@ env <- rsaga.env(path=rsaga.path)
 # Wetness index
 
 ```{r}
-rsaga.wetness.index(in.dem="../data/dems/DEMEA1NWT2014.asc", 
-                    out.wetness.index = "../outputs/SWIL",  
+rsaga.wetness.index(in.dem="../data/dems/FABDEM_EA_SK_ssbp1.asc", 
+                    out.wetness.index = "../outputs/SWIL_EA_SK_ssbp1",  
                     slope.type="local", 
                     env = env)
 ```
