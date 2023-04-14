@@ -33,17 +33,50 @@ env <- rsaga.env(path=rsaga.path)
 ```
 
 # Wetness index
-
+Can change slope.type to = "catchment"
 ```{r}
-rsaga.wetness.index(in.dem="../data/dems/FABDEM_EA_SK_ssbp1.asc", 
-                    out.wetness.index = "../outputs/SWIL_EA_SK_ssbp1",  
+rsaga.wetness.index(in.dem="../data/dems/FABDEM_EA_AK.asc", 
+                    out.wetness.index = "../outputs/SWIL_EA_AK",  
                     slope.type="local", 
                     env = env)
 ```
 
+# 2. Saga Grid to ASCII
 ```{r}
-rsaga.wetness.index(in.dem="../data/dems/DEMEA1NWT2014.asc", 
-                    out.wetness.index = "../outputs/SWIC",  
-                    slope.type="catchment", 
-                    env = env)
+rm(list=ls()) ### (you may not want this line) clear workspace   CAUTION!!!
+```
+
+## Packages
+```{r}
+library(RSAGA)
+library(gdalUtilities)
+library(terra)
+library(sf)
+```
+
+```{r}
+rsaga.path <- "C:/Users/atalucci/Documents/Programs/saga-8.5.1_x64"
+```
+
+```{r}
+env <- rsaga.env(path=rsaga.path) 
+```
+
+
+
+## Slope
+```{r}
+rsaga.sgrd.to.esri(in.sgrds = "../outputs/SWIL_EA_AK", out.grids = "../outputs/SWIL_EA_AK", format = "ascii", env = env)
+```
+
+
+
+### Aspect
+```{r}
+swil<-rast("../outputs/SWIL_EA_AK.asc")
+```
+
+
+```{r}
+writeRaster(swil, filename="../outputs/SWIL_EA_AK.tif", filetype = "GTiff", overwrite=TRUE)
 ```
